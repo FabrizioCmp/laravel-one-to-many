@@ -17,14 +17,19 @@
 
             <div class="mb-3">
                 <label class="form-label">Project type</label>
-                <select class="form-select w-25" name="type_id">
+                <select class="form-select w-25 @error('type_id') is-invalid @enderror" name="type_id">
                     <option></option>
                     @foreach ($types as $type)
                         <option value="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach
                 </select>
+                @error('type_id')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
-            
+
             <div class="mb-3">
                 <label for="form-label">Github link</label>
                 <input type="text" name="github_link" class="form-control w-50">

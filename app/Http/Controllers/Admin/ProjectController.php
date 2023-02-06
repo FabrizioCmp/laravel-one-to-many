@@ -42,7 +42,9 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data= $request->all();
+        $data= $request->validate([
+            "type_id" => "required"
+        ]);
 
         if (key_exists("cover_img", $data)) {
             $path = Storage::put("projects", $data["cover_img"]);
