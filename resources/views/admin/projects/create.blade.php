@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form class="mt-3" action="{{Route("admin.projects.store")}}" method="POST" enctype="multipart/form-data" >
+        <form class="mt-3" action="{{ Route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">
@@ -10,12 +10,22 @@
                 <input type="text" name="name" class="form-control w-25">
             </div>
 
-            <div class="mb-3" >
+            <div class="mb-3">
                 <label for="form-label">Cover</label>
                 <input type="file" name="cover_img" class="form-control w-50">
             </div>
+
+            <div class="mb-3">
+                <label class="form-label">Project type</label>
+                <select class="form-select w-25" name="type_id">
+                    <option></option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             
-            <div class="mb-3" >
+            <div class="mb-3">
                 <label for="form-label">Github link</label>
                 <input type="text" name="github_link" class="form-control w-50">
             </div>
