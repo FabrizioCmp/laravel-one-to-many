@@ -9,7 +9,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Nome Progetto</th>
-                    <th>Cover</th>
+                    <th class="text-center">Cover</th>
                     <th>Link github</th>
                     <th>Manage</th>
                 </tr>
@@ -19,9 +19,9 @@
                     <tr>
                         <td class="align-middle">{{ $project->id }}</td>
                         <td class="align-middle">{{ $project->name }}</td>
-                        <td class="align-middle" class="w-50">
+                        <td class="align-middle" class="w-50 text-center">
                             @if ($project->cover_img)
-                                <img src="{{ asset('storage/' . $project->cover_img) }}" alt="" class="w-25 ">
+                                <img src="{{ asset('storage/' . $project->cover_img) }}" alt="" class="w-25 d-block m-auto">
                             @endif
                         </td>
                         <td class="align-middle">{{ $project->github_link }}</td>
