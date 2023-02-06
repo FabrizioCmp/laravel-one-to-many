@@ -99,7 +99,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            "type_id" => "required"
+        ]);
         $project = Project::findOrFail($id);
 
         if (key_exists("cover_img", $data)) {
