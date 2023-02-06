@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\TextUI\XmlConfiguration\Group;
@@ -36,6 +37,7 @@ Route::middleware(['auth','verified'])
     ->name('admin.')
     ->group(function(){
         Route::resource('projects', ProjectController::class);
+        Route::resource("types", TypeController::class);
     });
 
 require __DIR__.'/auth.php';

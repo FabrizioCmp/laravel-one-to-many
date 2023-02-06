@@ -12,8 +12,9 @@
                 <p class="col-md-8 fs-4">If you don't, please <a href="{{ route("register")}}"> sign-in</a>.</p>
             @else
                 <h1 class="">Projects</h1>
-                <a class="btn btn-primary" href="{{Route('admin.projects.index')}}">View projects</a>
-                <a class="btn btn-success" href="">Create  project</a>
+                <a class="btn btn-primary" href="{{ route('admin.projects.index')}}">View projects</a>
+                <a class="btn btn-success" href="{{ route('admin.projects.create')}}">Create  project</a>
+                <a class="btn btn-secondary" href="{{ route('admin.types.create') }}">Create prject Type</a>
             @endif
         </div>
         
