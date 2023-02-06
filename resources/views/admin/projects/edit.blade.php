@@ -16,10 +16,21 @@
                 <input type="file" name="cover_img" class="form-control w-50">
             </div>
             
+            <div class="mb-3">
+                <label class="form-label">Project type</label>
+                <select class="form-select w-25" name="type_id">
+                    <option></option>
+                    @foreach ($types as $type )
+                        <option value="{{$type->id}}">{{$type->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <div class="mb-3" >
                 <label for="form-label">Github link</label>
                 <input type="text" name="github_link" class="form-control w-50" value="{{$project->github_link}}">
             </div>
+            
             <div>
                 <button class="btn btn-success">Update</button>
             </div>

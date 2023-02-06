@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -77,12 +78,13 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::findOrFail($id);
+        $types = Type::all();
 
         if(!$project){
             abort(404, " Project not found");
         }
 
-        return view('admin.projects.edit', compact("project"));
+        return view('admin.projects.edit', compact("project","types"));
     }
 
     /**
